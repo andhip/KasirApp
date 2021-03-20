@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Card } from "react-bootstrap";
+import { numberWithCommas } from "../utils/utils";
 
 const menus = ({ menu }) => {
   return (
@@ -8,7 +9,7 @@ const menus = ({ menu }) => {
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
           <Card.Title>{menu.nama}</Card.Title>
-          <Card.Text>Rp. {menu.harga}</Card.Text>
+          <Card.Text>Rp. {numberWithCommas(menu.harga)}</Card.Text>
         </Card.Body>
       </Card>
     </Col>
