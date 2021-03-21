@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { Hasil, ListCategories, Menus, NavComponent } from "./components";
 import { API_URL } from "./utils/constants";
 import axios from "axios";
+import swal from "sweetalert";
 
 export default class App extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class App extends Component {
     this.state = {
       menus: [],
       selectCategory: "Makanan",
+      keranjangs: [],
     };
   }
 
@@ -45,6 +47,59 @@ export default class App extends Component {
       });
   };
 
+  addToCart = (value) => {
+    axios
+      .get(API_URL + "keranjangs?product.id=" + value.id)
+      .then((res) => {
+        if (res.data.length === 0) {
+          const cart = {
+            jumlah: 1,
+            total_harga: value.harga,
+            product: value,
+          };
+
+          axios
+            .post(API_URL + "keranjangs", cart)
+            .then((res) => {
+              swal({
+                title: "Success add to cart!",
+                text: "Menu has been added",
+                icon: "success",
+                button: false,
+                timer: 1500,
+              });
+            })
+            .catch((error) => {
+              console.log("Error cui", error);
+            });
+        } else {
+          const cart = {
+            jumlah: res.data[0].jumlah + 1,
+            total_harga: res.data[0].total_harga + value.harga,
+            product: value,
+          };
+
+          axios
+            .put(API_URL + "keranjangs/" + res.data[0].id, cart)
+            .then((res) => {
+              swal({
+                title: "Success add to cart!",
+                text: "Menu has been added",
+                icon: "success",
+                button: false,
+                timer: 1500,
+              });
+            })
+            .catch((error) => {
+              console.log("Error cui", error);
+            });
+        }
+      })
+      .catch((error) => {
+        console.log("Error cui", error);
+      });
+  };
+
   render() {
     const { menus, selectCategory } = this.state;
     return (
@@ -64,7 +119,13 @@ export default class App extends Component {
                 <hr></hr>
                 <Row>
                   {menus &&
-                    menus.map((menu) => <Menus key={menu.id} menu={menu} />)}
+                    menus.map((menu) => (
+                      <Menus
+                        key={menu.id}
+                        menu={menu}
+                        addToCart={this.addToCart}
+                      />
+                    ))}
                 </Row>
               </Col>
               <Hasil />
