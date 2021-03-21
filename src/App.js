@@ -27,6 +27,17 @@ export default class App extends Component {
       .catch((error) => {
         console.log(error);
       });
+
+    axios
+      .get(API_URL + "keranjangs")
+      .then((res) => {
+        console.log("Response", res);
+        const keranjangs = res.data;
+        this.setState({ keranjangs });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   changeCategory = (value) => {
@@ -101,7 +112,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { menus, selectCategory } = this.state;
+    const { menus, selectCategory, keranjangs } = this.state;
     return (
       <div className="App">
         <NavComponent />
@@ -128,7 +139,7 @@ export default class App extends Component {
                     ))}
                 </Row>
               </Col>
-              <Hasil />
+              <Hasil keranjangs={keranjangs} />
             </Row>
           </div>
         </div>
