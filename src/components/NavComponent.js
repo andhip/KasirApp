@@ -1,11 +1,19 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 
 function NavComponent() {
   return (
     <Navbar variant="dark" expand="lg">
       <div className="container">
         <Navbar.Brand href="#home">
+          <FontAwesomeIcon
+            icon={faUtensils}
+            className="mr-2"
+            color="white"
+            spin
+          />
           <strong>Kasir</strong>App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

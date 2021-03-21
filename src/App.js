@@ -10,7 +10,7 @@ export default class App extends Component {
 
     this.state = {
       menus: [],
-      selectCategory: "Cemilan",
+      selectCategory: "Makanan",
     };
   }
 
@@ -32,17 +32,31 @@ export default class App extends Component {
       selectCategory: value,
       menus: [],
     });
+
+    axios
+      .get(API_URL + "products?category.nama=" + value)
+      .then((res) => {
+        console.log("Response", res);
+        const menus = res.data;
+        this.setState({ menus });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   render() {
-    const { menus } = this.state;
+    const { menus, selectCategory } = this.state;
     return (
       <div className="App">
         <NavComponent />
         <div className="mt-4">
           <div className="container-fluid">
             <Row>
-              <ListCategories />
+              <ListCategories
+                changeCategory={this.changeCategory}
+                selectCategory={selectCategory}
+              />
               <Col>
                 <h4>
                   <strong>Daftar Product</strong>

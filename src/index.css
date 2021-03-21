@@ -7,10 +7,6 @@ body {
 .navbar {
   background-color: #22668a;
 }
-.icon {
-  color: #22668a;
-  font-size: 34px;
-}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
