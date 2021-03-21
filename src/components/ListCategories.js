@@ -48,7 +48,7 @@ export default class ListCategories extends Component {
     return (
       <Col md={2} mt="2">
         <h4>
-          <strong>Daftar Katergori</strong>
+          <strong>Categories</strong>
         </h4>
         <hr></hr>
         <ListGroup className="list-category">

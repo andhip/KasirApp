@@ -40,6 +40,21 @@ export default class App extends Component {
       });
   }
 
+  componentDidUpdate(prevState) {
+    if (this.state.keranjangs !== prevState.keranjangs) {
+      axios
+        .get(API_URL + "keranjangs")
+        .then((res) => {
+          console.log("Response", res);
+          const keranjangs = res.data;
+          this.setState({ keranjangs });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }
+
   changeCategory = (value) => {
     this.setState({
       selectCategory: value,
@@ -125,7 +140,7 @@ export default class App extends Component {
               />
               <Col>
                 <h4>
-                  <strong>Daftar Product</strong>
+                  <strong>Product List</strong>
                 </h4>
                 <hr></hr>
                 <Row>

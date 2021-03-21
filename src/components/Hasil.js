@@ -8,7 +8,7 @@ export default class Hasil extends Component {
     return (
       <Col md={3} mt="2">
         <h4>
-          <strong>Hasil</strong>
+          <strong>My Cart</strong>
         </h4>
         <hr></hr>
         {keranjangs.length !== 0 && (
@@ -18,16 +18,22 @@ export default class Hasil extends Component {
                 <Row>
                   <Col xs="2">
                     <h5>
-                      <Badge pill variant="success">
+                      <Badge pill variant="success" className="qty">
                         {menuCart.jumlah}
                       </Badge>
                     </h5>
                   </Col>
                   <Col>
-                    <h5>{menuCart.product.nama}</h5>
-                    <p>Rp. {numberWithCommas(menuCart.product.harga)}</p>
+                    <h6 className="title">{menuCart.product.nama}</h6>
+                    <h6 className="float-left">
+                      Rp. {numberWithCommas(menuCart.product.harga)}
+                    </h6>
                   </Col>
-                  <Col>Rp. {numberWithCommas(menuCart.total_harga)}</Col>
+                  <Col>
+                    <strong className="float-right">
+                      Rp. {numberWithCommas(menuCart.total_harga)}
+                    </strong>
+                  </Col>
                 </Row>
               </ListGroup.Item>
             ))}
