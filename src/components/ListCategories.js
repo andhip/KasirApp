@@ -11,11 +11,11 @@ import {
 
 const Icon = ({ nama }) => {
   if (nama === "Makanan")
-    return <FontAwesomeIcon icon={faHamburger} className="mr-2" color="grey" />;
+    return <FontAwesomeIcon icon={faHamburger} className="mr-2" />;
   if (nama === "Minuman")
-    return <FontAwesomeIcon icon={faCocktail} className="mr-2" color="grey" />;
+    return <FontAwesomeIcon icon={faCocktail} className="mr-2" />;
   if (nama === "Cemilan")
-    return <FontAwesomeIcon icon={faCheese} className="mr-2" color="grey" />;
+    return <FontAwesomeIcon icon={faCheese} className="mr-2" />;
 
   return <FontAwesomeIcon icon={faHamburger} className="mr-2" />;
 };
@@ -51,12 +51,15 @@ export default class ListCategories extends Component {
           <strong>Daftar Katergori</strong>
         </h4>
         <hr></hr>
-        <ListGroup>
+        <ListGroup className="list-category">
           {categories &&
             categories.map((category) => (
               <ListGroup.Item
                 key={category.id}
                 onClick={() => changeCategory(category.nama)}
+                className={
+                  selectCategory === category.nama && "category-active"
+                }
               >
                 <h5>
                   {" "}
