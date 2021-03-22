@@ -6,11 +6,12 @@ import { Home, Sukses } from "./pages";
 export default class App extends Component {
   render() {
     return (
+      // Router atau untuk mengalihkan ke pages sukses
       <BrowserRouter>
         <NavComponent></NavComponent>
         <main>
           <Switch>
-            <Route path="/" component={Home}></Route>
+            <Route path="/" component={Home} exact></Route>
             <Route path="/sukses" component={Sukses}></Route>
           </Switch>
         </main>
