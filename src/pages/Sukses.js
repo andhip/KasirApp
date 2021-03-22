@@ -11,7 +11,7 @@ export default class Sukses extends Component {
           width="500"
           height="auto"
         ></Image>
-        <h2>Thank you for Ordering!</h2>
+        <h2>Thank you for Order!</h2>
         <p> </p>
         <Button className="btn btn-primary" as={Link} to="/">
           Home
