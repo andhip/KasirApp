@@ -13,6 +13,11 @@ body {
 }
 .menus {
   cursor: pointer;
+  box-shadow: 0px 3px 12px rgba(128, 128, 128, 0.363);
+  transition: all 0.2s ease-in-out;
+}
+.menus:hover {
+  box-shadow: 0px 4px 28px rgba(128, 128, 128, 0.548);
 }
 
 .btn-primary {
@@ -31,27 +36,33 @@ body {
   color: white;
   cursor: pointer;
 }
+
 .mycart {
   margin-bottom: 32%;
 }
+
 .cart-hover:hover {
   background-color: #aba7f51a;
   border-radius: 2px;
   cursor: pointer;
 }
+
 .qty {
   font-size: 14px;
   background-color: #38cab2;
   box-shadow: 0px 4px 12px #14494023;
 }
+
 .title {
   font-size: 16px;
   font-weight: 600;
 }
+
 .float-right {
   font-size: 15px;
   font-weight: 600;
 }
+
 .float-left {
   font-size: 14px;
 }
@@ -62,7 +73,7 @@ body {
 }
 
 .andynhov {
-  color: #e9e9e9c5;
+  color: #e9e9e9af;
 }
 .andynhov:hover {
   color: #e9e9e9f1;

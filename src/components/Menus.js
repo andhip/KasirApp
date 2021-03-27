@@ -5,7 +5,7 @@ import { numberWithCommas } from "../utils/utils";
 const menus = ({ menu, addToCart }) => {
   return (
     <Col md={4} xs={6}>
-      <Card className="mt-2 mb-3 shadow menus" onClick={() => addToCart(menu)}>
+      <Card className="mt-2 mb-3  menus" onClick={() => addToCart(menu)}>
         <Card.Img
           variant="top"
           src={
