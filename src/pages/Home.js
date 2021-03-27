@@ -152,7 +152,8 @@ export default class Home extends Component {
                   ))}
               </Row>
             </Col>
-            <Hasil keranjangs={keranjangs} />
+            <Hasil keranjangs={keranjangs} {...this.props} />
+            {/* ...this.props is to call all item in keranjangs*/}
           </Row>
         </div>
       </div>

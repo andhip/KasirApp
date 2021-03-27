@@ -15,12 +15,12 @@ body {
 .btn-primary {
   background-color: #6c63ff !important;
   border: #6c63ff !important;
-  box-shadow: 0px 4px 12px #6b63ff67;
+  box-shadow: 0px 4px 12px #6b63ff4f;
 }
 .btn-primary:hover {
   background-color: #6c63ff;
   border: #6c63ff;
-  box-shadow: 0px 4px 14px #6b63ffc2;
+  box-shadow: 0px 4px 14px #6b63ffb4;
 }
 
 .category-active {
@@ -34,7 +34,7 @@ body {
 .qty {
   font-size: 14px;
   background-color: #38cab2;
-  box-shadow: 0px 4px 12px #1449402a;
+  box-shadow: 0px 4px 12px #14494023;
 }
 .title {
   font-size: 16px;
