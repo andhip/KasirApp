@@ -28,7 +28,7 @@ export default class TotalBayar extends Component {
         <Row>
           <Col md={{ span: 3, offset: 9 }} className="px-5">
             <h6 className="TotalBayar">
-              Total Harga : {""}
+              Total Pesanan : {""}
               <strong className="float-right mr-1">
                 Rp. {numberWithCommas(totalBayar)}
               </strong>
