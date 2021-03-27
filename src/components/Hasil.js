@@ -1,9 +1,35 @@
 import React, { Component } from "react";
 import { Row, Col, ListGroup, Badge } from "react-bootstrap";
 import { numberWithCommas } from "../utils/utils";
+import { ModalKeranjang } from "./ModalKeranjang";
 import TotalBayar from "./TotalBayar";
 
 export default class Hasil extends Component {
+  // constructor modals
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showModal: false,
+      keranjangDetail: false,
+      jumlah: 0,
+      keterangan: "",
+    };
+  }
+
+  handleShow = (menuCart) => {
+    this.setState({
+      showModal: true,
+      keranjangDetail: menuCart,
+    });
+  };
+
+  handleClose = () => {
+    this.setState({
+      showModal: false,
+    });
+  };
+
   render() {
     const { keranjangs } = this.props;
     return (
@@ -15,7 +41,11 @@ export default class Hasil extends Component {
         {keranjangs.length !== 0 && (
           <ListGroup variant="flush" className="mycart">
             {keranjangs.map((menuCart) => (
-              <ListGroup.Item>
+              <ListGroup.Item
+                className="cart-hover"
+                keys={menuCart.id}
+                onClick={() => this.handleShow(menuCart)}
+              >
                 <Row>
                   <Col xs="2">
                     <h5>
@@ -38,6 +68,8 @@ export default class Hasil extends Component {
                 </Row>
               </ListGroup.Item>
             ))}
+
+            <ModalKeranjang handleClose={this.handleClose} {...this.state} />
           </ListGroup>
         )}
         <TotalBayar keranjangs={keranjangs} {...this.props}></TotalBayar>

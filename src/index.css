@@ -11,6 +11,9 @@ body {
 .list-category {
   cursor: pointer;
 }
+.menus {
+  cursor: pointer;
+}
 
 .btn-primary {
   background-color: #6c63ff !important;
@@ -31,6 +34,11 @@ body {
 .mycart {
   margin-bottom: 32%;
 }
+.cart-hover:hover {
+  background-color: #aba7f51a;
+  border-radius: 2px;
+  cursor: pointer;
+}
 .qty {
   font-size: 14px;
   background-color: #38cab2;
@@ -47,6 +55,7 @@ body {
 .float-left {
   font-size: 14px;
 }
+
 .TotalBayar {
   font-size: 16px;
   font-weight: 600;

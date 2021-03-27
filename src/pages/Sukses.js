@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { API_URL } from "../utils/constants";
 
 export default class Sukses extends Component {
-  // Delete Cart and push to pesanan
+  // Delete Cart and push to pesanan, and mapping 1 by 1
   componentDidMount() {
     axios
       .get(API_URL + "keranjangs")
