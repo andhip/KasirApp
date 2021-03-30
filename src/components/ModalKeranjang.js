@@ -1,4 +1,4 @@
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Modal, Button, Form } from "react-bootstrap";
@@ -52,11 +52,15 @@ export const ModalKeranjang = ({
                 placeholder="Pedas, Manis, Hot, Ice"
               />
             </Form.Group>
+            <Button variant="primary" type="sbumit">
+              Simpan
+            </Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+          <Button variant="danger">
+            <FontAwesomeIcon icon={faTrash} className="mr-1" />
+            Hapus Pesanan
           </Button>
           <Button variant="primary" onClick={handleClose}>
             Save Changes
