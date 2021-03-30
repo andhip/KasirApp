@@ -9,6 +9,11 @@ export const ModalKeranjang = ({
   handleClose,
   keranjangDetail,
   jumlah,
+  keterangan,
+  tambah,
+  kurang,
+  changeHandler,
+  handleSubmit,
 }) => {
   if (keranjangDetail) {
     return (
@@ -23,7 +28,7 @@ export const ModalKeranjang = ({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Total Harga:</Form.Label>
               <p>
@@ -35,11 +40,21 @@ export const ModalKeranjang = ({
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Jumlah:</Form.Label>
-              <Button className="ml-2 mr-2" variant="primary" size="sm">
+              <Button
+                className="ml-2 mr-2"
+                variant="primary"
+                size="sm"
+                onClick={() => tambah()}
+              >
                 <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
               </Button>
               <strong>{jumlah}</strong>
-              <Button className="ml-2" variant="primary" size="sm">
+              <Button
+                className="ml-2"
+                variant="primary"
+                size="sm"
+                onClick={() => kurang()}
+              >
                 <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
               </Button>
             </Form.Group>
@@ -50,6 +65,8 @@ export const ModalKeranjang = ({
                 rows={3}
                 name="description"
                 placeholder="Pedas, Manis, Hot, Ice"
+                value={keterangan}
+                onChange={(event) => changeHandler(event)}
               />
             </Form.Group>
             <Button variant="primary" type="sbumit">
@@ -60,10 +77,7 @@ export const ModalKeranjang = ({
         <Modal.Footer>
           <Button variant="danger">
             <FontAwesomeIcon icon={faTrash} className="mr-1" />
-            Hapus Pesanan
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Delete Pesanan
           </Button>
         </Modal.Footer>
       </Modal>
