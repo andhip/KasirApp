@@ -14,6 +14,7 @@ export const ModalKeranjang = ({
   kurang,
   changeHandler,
   handleSubmit,
+  totalHarga,
 }) => {
   if (keranjangDetail) {
     return (
@@ -34,7 +35,7 @@ export const ModalKeranjang = ({
               <p>
                 <strong>
                   Rp. {numberWithCommas}
-                  {keranjangDetail.total_harga}
+                  {totalHarga}
                 </strong>
               </p>
             </Form.Group>
